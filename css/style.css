@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+html {
+    /*ブラウザの設定を生かす*/
+    /*ブラウザの標準 16px→1rem*/
+    font-size: 100%;
+}
+
+body {
+    color: #383e45;
+    /*1remはhtmlの100%(16px)*/
+    font-size: .9rem;
+}
+
+a {
+    /*下線をなくす*/
+    text-decoration: none;
+}
+
+img {
+    /*どんなに写真の寸法が大きいファイルでも最大の幅は親要素の幅まで*/
+    max-width: 100%;
+}
+
+li {
+    /*黒丸などのマーカーをなしにする*/
+    list-style: none;
+}
+
+.site-title {
+    width: 120px;
+    /*行間*/
+    line-height: 1px;
+    /*padding上下左右*/
+    padding: 10px 0;
+}
+
+/*.site-titleの中のa*/
+.site-title a {
+    display: block;
+}
+
+.section-title {
+    display: inline-block;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: solid 1px #383e45;
+}
+
+.content-title {
+    font-size: 1rem;
+    /*margin上下左右*/
+    margin: 10px 0;
+}
+
+/*コンテンツの幅を使われるときによく使われるクラス名*/
+.wrapper {
+    /*広がっても、そのコンテンツは960まで*/
+    max-width: 960px;
+    margin: 0 auto 100px auto;
+    /*親要素の幅に対しての4%分*/
+    padding: 0 4%;
+    text-align: center;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+    直
+    /*属の子要素をとにかく横並びに強制*/
+    display: flex;
+    /*flexの進行方向の並び*/
+    justify-content: space-between;
+    /*flexの進行方向都は進捗方向の並び*/
+    align-items: center;
+    margin: 0 auto;
+}
+
+#header ul {
+    display: flex;
+    padding: 10px 0;
+}
+
+#header li {
+    margin-left: 30px;
+}
+
+#header li a {
+    color: #24292e;
+}
+
+/*「:hover」をつけると、「マウスオーバーした時」のデザインという意味になる*/
+#header li a:hover {
+    /*透明度が透明、１が不透明*/
+    opacity: 0.7;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+    margin-bottom: 80px;
+}
+
+#mainvisual img {
+    width: 100% max-width: 1920px;
+    height: 600px;
+    object-fit: cover;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about img {
+    width: 100px;
+    height: 100px;
+    /*枠の4つの角を丸める命令*/
+    /*50%にすると栖鳳尾計をまん丸*/
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+#about .text {
+    /*並びを左にする*/
+    text-align: left;
+}
+
+/*-------------------------------------------
+Bicycle
+-------------------------------------------*/
+#bicycle ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bicycle li {
+    width: 32%;
+}
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+    font-size: .5rem;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #ccc;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+
+/*メディアクエリ→レスポンシブデザインを始める条件*/
+/*()の中に発動条件*/
+/*大きくても600pxの画面の時→0～600pxの時 小さくても600pxの時min-width*/
+@media screen and (max-width: 600px) {
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+    #mainvisual img {
+        /*vhはｳｲﾝﾄﾞｳの高さの単位*/
+        /*100vhはｳｲﾝﾄﾞｳの高さ100%*/
+        /*※100vwはｳｲﾝﾄﾞｳの幅*/
+        /*calc()は()の中で計算式をOKにする値 60pxは上の検索バー分*/
+        height: carc(100vh - 60px);
+    }
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+    #about.content {
+        /*並び方を縦にする(カラン)*/
+        flex-direction: column;
+    }
+
+    #about img {
+        margin-right: 0;
+    }
+
+/*-------------------------------------------
+  Bicycle
+-------------------------------------------*/
+    #bicycle ul {
+        flex-direction: column;
+    }
+
+    #bicycle li {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
